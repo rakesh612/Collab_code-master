@@ -1,0 +1,28 @@
+{
+  "name": "new-folder-(2)",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build": "npm run build --prefix backend && npm run build --prefix frontend && npm run build --prefix chatsocket && npm run build --prefix CodeExecution && npm run build --prefix RoomSocket",
+  "start-all": "concurrently \"npm start --prefix chatsocket\" \"npm start --prefix CodeExecution\" \"npm start --prefix RoomSocket\" \"npm start --prefix backend\" ",
+  "start": "npm run start --prefix backend"
+},
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mokshgnaism/Collab_code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mokshgnaism/Collab_code/issues"
+  },
+  "homepage": "https://github.com/Mokshgnaism/Collab_code#readme",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
