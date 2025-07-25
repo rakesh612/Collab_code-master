@@ -122,7 +122,7 @@ npm run start-all
 
 ## ✨ Author
 
-* Gorantla Mokshgna (IIT ISM Dhanbad CSE)
+* Nukala Hanumath Rakesh(Mohan Babu University)
 
 ---
 
