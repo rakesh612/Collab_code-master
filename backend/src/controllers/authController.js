@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import {v4} from "uuid";
 import redis from "../config/dbConnect.js";
 import mongoose from "mongoose";
-import { sendOtp, verifyOtp } from "../utils/OtpServices.js";
+import { sendOtp, verifyOtp } from "../utils/otpServices.js";
 const COOKIE_OPTIONS_1 = {
   httpOnly: true,
   secure: true,  
@@ -38,7 +38,6 @@ export async function signUp(req,res) {
         await sendOtp({email});
         
         const sessionId = v4();
-
 
         const hashedFingerPrint = await bcrypt.hash(fingerPrint.toString(),10);
 
@@ -195,7 +194,7 @@ export async function resetPassword(req,res) {
             await User.findByIdAndUpdate(user._id,{
                 password:newHashedPassword
             });
-            return res.status(201).json({message:"succesfully chanfed the password ",success:true});
+            return res.status(201).json({message:"succesfully changed the password ",success:true});
         }
         if(match==0){
             return res.status(403).json({message:"wrong otp found ...",success:false});

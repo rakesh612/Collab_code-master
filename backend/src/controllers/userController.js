@@ -151,7 +151,7 @@ export async function getFriendRequests(req, res) {
 
 export async function getSuggestions(req,res){
     try {
-        console.log("tried to hit the get suggestiosn api ");
+        console.log("tried to hit the get suggestions api ");
         const Friends = req.user.friends;
         const excludeids = [...Friends,req.user._id];
         let query = {
