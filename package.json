@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
  "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "build": "npm run build --prefix backend && npm run build --prefix frontend && npm run build --prefix chatsocket && npm run build --prefix CodeExecution && npm run build --prefix RoomSocket",
+  "test": "echo \"Error: no test specified\" && exit 1","build": "npm run build --prefix backend && npm run build --prefix frontend && npm run build --prefix chatSocket && npm run build --prefix CodeExecution && npm run build --prefix RoomSocket"
+   "build": "npm run build --prefix backend && npm run build --prefix frontend && npm run build --prefix chatsocket && npm run build --prefix CodeExecution && npm run build --prefix RoomSocket",
   "start-all": "concurrently \"npm start --prefix chatsocket\" \"npm start --prefix CodeExecution\" \"npm start --prefix RoomSocket\" \"npm start --prefix backend\" ",
   "start": "npm run start --prefix backend"
 },
