@@ -25,7 +25,7 @@ export async function signUp(req,res) {
     try {
         const {email,password,name,fingerPrint} = req.body;
         //finger print will be sent from the browser ... which is indeed somewhat secure 
-        const hashed = await bcrypt.hash(password,10);
+        const hashed = await bcrypt.hash(password,10);  //10 represents how many time the hashing algo should run to be more secure
         const user = await User.findOne({email});
         if(user){
             return res.status(409).json({message:"email exists",success:false});

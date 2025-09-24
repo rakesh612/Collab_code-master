@@ -10,7 +10,7 @@ const newRoomSchema = mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:'User'
     },
-    members:{
+    members:{   //array of user objects
         type:[
             {
                 type:mongoose.Types.ObjectId,
@@ -25,7 +25,7 @@ const newRoomSchema = mongoose.Schema({
     },
     language:{
         type:String,
-        default:"cpp"
+        default:"java"
     }
 },{timestamps:true});
 
@@ -41,3 +41,7 @@ newRoomSchema.pre('save', function (next) {
 
 export default mongoose.model("Room",newRoomSchema);
 
+// Runs before saving the document.
+// If it’s a new room (this.isNew === true), it automatically:
+// Puts the creator inside the members array.
+// That way, the room creator is also a participant without requiring extra logic.
