@@ -132,9 +132,10 @@ npm run start-all
 {
   "roomId": "abc123",
   "language": "java",
-  "code": "class Main{public static void main(String[] args){System.out.println("hello world");}}",
+  "code": "class Main{public static void main(String[] args){System.out.println(\"hello world\");}}",
   "input": ""
 }
+
 ```
 
 ---
