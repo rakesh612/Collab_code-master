@@ -142,3 +142,53 @@ export async function protectRoute(req, res, next) {
         res.status(500).json({ message: "Internal server error", success: false });
     }
 }
+
+
+
+// The Flow in protectRoute     
+
+// Check tokens from cookies
+
+// accessToken (short-lived JWT, 15 min).
+
+// refreshToken (longer-lived JWT, 7 days).
+
+// If access token is present
+
+// Try to verify it.
+
+// If valid → attach req.user and continue.
+
+// If invalid (expired/tampered) → fall back to refresh token.
+
+// Fingerprint binding
+
+// Each JWT stores browserFingerPrint.
+
+// If the fingerprint from request ≠ fingerprint in token → possible token theft → session killed.
+
+// If access token fails → use refresh token
+
+// Verify refresh token.
+
+// Check Redis: does this sessionId exist for the user?
+
+// Check:
+
+// Token hash matches stored hash (bcrypt.compare)
+
+// Fingerprint matches both stored + token copy
+
+// If any mismatch → SCAM LOGIN detected → delete session + clear cookies.
+
+// If refresh token is valid
+
+// Rotate tokens:
+
+// Generate new accessToken (15m)
+
+// Generate new refreshToken (7d) with new sessionId
+
+// Store new hashed refresh token in Redis
+
+// Return them in cookies → seamless user experience.

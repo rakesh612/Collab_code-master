@@ -5,7 +5,7 @@ const RATE_LIMIT = {
   refillInterval: 10000,
 };
 
-export const rateLimiter = async (req, res, next) => {
+export default async function rateLimiter (req, res, next)  {
   const ip = req.ip || req.connection.remoteAddress;
   const key = `ratelimit:${ip}`;
   const now = Date.now();

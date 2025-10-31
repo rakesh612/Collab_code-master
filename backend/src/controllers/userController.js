@@ -208,7 +208,7 @@ export async function getRoomInvitations(req, res) {
     console.log("hit the my invites route");
     const invitations = await Invite.find({
       receiver,
-      expiresAt: { $gt: Date.now() }
+      expiresAt: { $gt: Date.now() }   //greater than
     })
       .populate({ path: "sender", select: "name email" })
       .populate({ path: "roomId", select: "title language" }); 
